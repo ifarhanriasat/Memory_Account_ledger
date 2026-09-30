@@ -15,6 +15,7 @@ Times are local (UTC+04:00), taken from the shell clock (`date -Iseconds`) as ea
 | 01:42 | REJECTED.md and AMBIGUITIES.md. Wrote them against the actual replay. Ran a counterfactual (no E7/E9) to get C6's figure right: available would close at 376.03 vs 466.03 as replayed. My first draft said 375.00, which was the Day 5 figure, not the close. |
 | 01:43 | README and NUMBERS.md. Checked the "half the rate" claim by hand (0.50 vs 1.03) and the 17-entry count. |
 | 01:43 | Clean rebuild (`rm -rf dist`): `npm test` gives 33 tests, 32 pass, 1 fail (the deliberate one), exit 1. `npm run test:green` exits 0. `npm run replay` prints all six days. |
+| 02:44 | Part 2: ARCHITECTURE.md. Re-read the engine's hot paths before writing the scaling section: every `ledgerBalance` scans all accounts' entries, and `activeHolds` is quadratic in auth count, so the auth path fails first. Checked three draft claims by running them: a missing `valueDate` is already rejected (`BAD_VALUE_DATE`), so I dropped that claim; a numeric `amount` crashes `ingest` with a `TypeError`; a repeated event ID double-posts. Corrected the doc to match. Then cut it to fit 4 A4 pages as ARCHITECTURE.pdf (one section per page), rendering every page to check the layout; the long Markdown draft is not kept, so there is only one version. |
 
 ## Hand trace done before coding (01:31)
 
