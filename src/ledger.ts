@@ -125,6 +125,8 @@ export interface AccountDaySnapshot {
   readonly feeEntries: readonly LedgerEntry[];
   readonly accruals: readonly AccrualRecord[];
   readonly capitalization?: LedgerEntry;
+  /** Closing ledger for every value day up to this one, as known tonight (index 0 = first day). */
+  readonly history: readonly bigint[];
 }
 
 export interface DayReport {
@@ -427,6 +429,8 @@ export class LedgerEngine {
         feeEntries: newEntries.filter((e) => e.account === acc.id && FEE_KINDS.has(e.kind)),
         accruals: newAccruals.filter((a) => a.account === acc.id),
         capitalization: capitalizations.get(acc.id),
+        history: Object.freeze(Array.from({ length: day - POLICY.window.first + 1 },
+          (_, i) => this.ledgerBalance(acc.id, POLICY.window.first + i))),
       })),
     }));
   }
