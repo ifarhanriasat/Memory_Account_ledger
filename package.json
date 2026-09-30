@@ -1,0 +1,18 @@
+{
+  "name": "ledger-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "In-memory account ledger core replayed against a fixed six-day event stream.",
+  "scripts": {
+    "build": "tsc -p .",
+    "replay": "npm run build && node dist/src/replay.js",
+    "test": "npm run build && node --test dist/test/",
+    "test:green": "npm run build && node --test dist/test/money.test.js dist/test/ledger.test.js dist/test/acceptance.test.js",
+    "test:known-failure": "npm run build && node --test dist/test/known-failure.test.js"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "typescript": "^5.4.5"
+  }
+}
