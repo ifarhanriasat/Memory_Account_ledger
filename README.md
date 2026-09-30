@@ -2,6 +2,8 @@
 
 An append-only, in-memory ledger for two accounts (ACC-001 AED, ACC-002 BHD), replayed against a fixed six-day event stream. There is no web layer, no persistence, no UI and no database. TypeScript, standard library only. The only dev dependencies are `typescript` and `@types/node`.
 
+**Part 2 report:** [Architecture & Trade-offs (PDF, 4 pages)](https://github.com/ifarhanriasat/Memory_Account_ledger/raw/main/ARCHITECTURE.pdf): a direct download.
+
 ## Run it
 
 Requires Node.js 20 or later.
@@ -69,5 +71,5 @@ test/known-failure.test.ts the deliberate failing test
 - [REJECTED.md](REJECTED.md): the four acceptance criteria refused (C2, C6, C7, C8) with reasoning, and approaches abandoned.
 - [AMBIGUITIES.md](AMBIGUITIES.md): 29 ambiguities and how each was resolved.
 - [NUMBERS.md](NUMBERS.md): every constant, and why that value and not half of it.
-- [ARCHITECTURE.pdf](ARCHITECTURE.pdf): Part 2 (4 pages). Scaling, value-dating in a UAE bank, authorization lifecycle, and what was cut.
+- [ARCHITECTURE.pdf](ARCHITECTURE.pdf) ([download](https://github.com/ifarhanriasat/Memory_Account_ledger/raw/main/ARCHITECTURE.pdf)): Part 2 (4 pages). Scaling, value-dating in a UAE bank, authorization lifecycle, and what was cut.
 - [WORKLOG.md](WORKLOG.md): timestamped build log.
